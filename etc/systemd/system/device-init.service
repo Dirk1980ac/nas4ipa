@@ -1,0 +1,14 @@
+[Unit]
+Before=systemd-user-sessions.service
+Wants=network-online.target
+After=network-online.target
+ConditionPathExists=!/var/lib/.init-done
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/device-init.sh
+ExecStartPost=touch /var/lib/.init-done
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
