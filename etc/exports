@@ -1,0 +1,1 @@
+/export *(rw,sec=krb5i:krb5p)
