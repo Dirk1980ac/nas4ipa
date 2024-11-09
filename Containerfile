@@ -5,4 +5,3 @@ RUN dnf update -y && \
     systemctl enable nfs-server cockpit.socket && \
     mkdir -p /export
 COPY etc /etc
-COPY usr /usr
