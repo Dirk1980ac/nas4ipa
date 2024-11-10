@@ -8,7 +8,6 @@ ConditionPathExists=!/var/lib/.init-done
 Type=oneshot
 ExecStart=/usr/local/bin/device-init.sh
 ExecStartPost=touch /var/lib/.init-done
-RemainAfterExit=yes
 
 [Install]
 WantedBy=multi-user.target
