@@ -1,10 +1,7 @@
 build:
-	sudo podman build -t nas4ipa:latest .
-
-tag:
-	sudo podman tag nas4ipa:latest dirk1980/nas4ipa:latest
+	sudo podman build --platform linux/amd64,linux/arm64  --manifest dirk1980/nas4ipa:latest .
 
 push:
-	sudo podman push dirk1980/nas4ipa:latest
+	sudo podman manifest push dirk1980/nas4ipa:latest
 
-all:	build tag 
+all:	build push
