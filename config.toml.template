@@ -1,5 +1,0 @@
-[[customizations.user]]
-name = "admin"
-password = "admin"
-key = "ssh-rsa AAA ... user@email.com"
-groups = ["wheel"]
