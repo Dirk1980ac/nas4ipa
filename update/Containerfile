@@ -1,2 +1,0 @@
-FROM dirk1980/nas4ipa:latest
-RUN dnf update -y
