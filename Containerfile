@@ -1,4 +1,4 @@
-FROM registry.fedoraproject.org/fedora-bootc:41
+FROM registry.fedoraproject.org/fedora-bootc:latest
 
 COPY etc /etc
 
