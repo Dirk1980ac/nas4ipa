@@ -1,0 +1,2 @@
+FROM docker.io/dirk1980/nas4ipa:latest
+RUN dnf update -y && dnf clean all -y
