@@ -8,8 +8,8 @@ COPY usr /usr
 RUN mkdir -p /export
 
 # Install needed software, update system and clean dnf caches
-RUN dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot greenboot-default-health-checks firewalld freeipa-client glibc-langpack-de && \
-    dnf update -y && \
+RUN dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot \
+    greenboot-default-health-checks firewalld freeipa-client glibc-langpack-de && \
     dnf clean all
 
 # Enable services on boot
