@@ -13,7 +13,7 @@ RUN dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot \
     dnf clean all
 
 # Enable services on boot
-RUN systemctl enable  cockpit.socket firstboot
+RUN systemctl enable cockpit.socket firstboot
 
 # Enable greenboot support
 RUN systemctl enable greenboot-grub2-set-counter.service \
