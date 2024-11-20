@@ -23,3 +23,5 @@ RUN systemctl enable greenboot-grub2-set-counter.service \
     greenboot-rpm-ostree-grub2-check-fallback.service \
     greenboot-status.service \
     greenboot-task-runner.service
+
+RUN ln -s /usr/lib/motd.d/boot-status /etc/motd.d/boot-status
