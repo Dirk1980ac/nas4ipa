@@ -5,17 +5,17 @@ COPY etc /etc
 COPY usr /usr
 
 # Create Directory for NFS exports
-RUN mkdir -p /export
+RUN mkdir -p /var/storage
 
 # Install needed software, update system and clean dnf caches
-RUN dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot \
+RUN dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot watchdog \
     greenboot-default-health-checks firewalld freeipa-client glibc-langpack-de && \
     dnf clean all
 
 # Enable services on boot
-RUN systemctl enable cockpit.socket firstboot
+RUN systemctl enable cockpit.socket watchdog firstboot
 
-# Enable greenboot support
+# Enable greenboot
 RUN systemctl enable greenboot-grub2-set-counter.service \
     greenboot-grub2-set-success.service \
     greenboot-healthcheck.service \
