@@ -1,5 +1,4 @@
 #!/bin/bash
 
-# Set german locale and keyboard layout
-localectl set-locale de_DE.UTF-8
-localectl set-keymap de-nodeadkeys
+# Nothing to do.
+# Language is now set in Kickstart file if neccessary.
