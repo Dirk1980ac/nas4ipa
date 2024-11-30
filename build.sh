@@ -1,3 +1,3 @@
 #!/bin/sh
 
-sudo podman build "nas4ipa:test" .
+podman build "nas4ipa:test" .
