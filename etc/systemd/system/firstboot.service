@@ -8,7 +8,7 @@ ConditionPathExists=!/var/lib/.firstboot-done
 Type=oneshot
 ExecStart=/usr/local/bin/firstboot.sh
 ExecStartPost=touch /var/lib/.firstboot-done
-#RemainAfterExit=yes
+RemainAfterExit=no
 
 [Install]
 WantedBy=multi-user.target
