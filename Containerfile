@@ -24,5 +24,6 @@ RUN dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot watchdog \
 	dnf clean all  && \
 	systemctl enable cockpit.socket watchdog firstboot httpd radicale\
 	greenboot-task-runner greenboot-healthcheck greenboot-status \
-	greenboot-loading-message greenboot-grub2-set-counter greenboot-grub2-set-success \
-	greenboot-rpm-ostree-grub2-check-fallback redboot-auto-reboot redboot-task-runner
+	greenboot-loading-message greenboot-grub2-set-counter \
+	greenboot-grub2-set-success greenboot-rpm-ostree-grub2-check-fallback \
+	redboot-auto-reboot redboot-task-runner
