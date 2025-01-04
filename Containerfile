@@ -18,12 +18,15 @@ COPY usr /usr
 RUN mkdir -p /var/storage
 
 # Install needed software, update system and clean dnf caches
-RUN dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot watchdog \
-	greenboot-default-health-checks firewalld freeipa-client glibc-langpack-de \
-	radicale httpd mod_auth_gssapi --setopt="install_weak_deps=False" && \
-	dnf clean all  && \
-	systemctl enable cockpit.socket watchdog firstboot httpd radicale\
+RUN <<EOF
+dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot \
+	watchdog greenboot-default-health-checks firewalld freeipa-client \
+	glibc-langpack-de radicale httpd mod_auth_gssapi \
+	--setopt="install_weak_deps=False"
+dnf clean all
+systemctl enable cockpit.socket watchdog firstboot httpd radicale\
 	greenboot-task-runner greenboot-healthcheck greenboot-status \
 	greenboot-loading-message greenboot-grub2-set-counter \
-	greenboot-grub2-set-success greenboot-rpm-ostree-grub2-check-fallback \
-	redboot-auto-reboot redboot-task-runner
+	greenboot-grub2-set-success redboot-auto-reboot \
+	redboot-task-runner greenboot-rpm-ostree-grub2-check-fallback
+EOF
