@@ -19,11 +19,19 @@ RUN mkdir -p /var/storage
 
 # Install needed software, update system and clean dnf caches
 RUN <<EOF
+set -eu
+
+mkdir -p /usr/bootc-image
+
+echo $buildid > /usr/bootc-image/build-od
+
 dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot \
 	watchdog greenboot-default-health-checks firewalld freeipa-client \
 	glibc-langpack-de radicale httpd mod_auth_gssapi \
 	--setopt="install_weak_deps=False"
-dnf clean all
+
+	dnf clean all
+
 systemctl enable cockpit.socket watchdog firstboot httpd radicale\
 	greenboot-task-runner greenboot-healthcheck greenboot-status \
 	greenboot-loading-message greenboot-grub2-set-counter \
