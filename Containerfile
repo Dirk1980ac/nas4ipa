@@ -21,16 +21,16 @@ RUN mkdir -p /var/storage
 RUN <<EOF
 set -eu
 
+mkdir -p /var/storage
 mkdir -p /usr/bootc-image
-
 echo $buildid > /usr/bootc-image/build-od
 
-dnf install -y NetworkManager-tui cockpit mc htop zsh greenboot \
+dnf install -y --setopt="install_weak_deps=False" \
+	NetworkManager-tui cockpit mc htop zsh greenboot \
 	watchdog greenboot-default-health-checks firewalld freeipa-client \
-	glibc-langpack-de radicale httpd mod_auth_gssapi \
-	--setopt="install_weak_deps=False"
+	glibc-langpack-de radicale httpd mod_auth_gssapi
 
-	dnf clean all
+dnf clean all
 
 systemctl enable cockpit.socket watchdog firstboot httpd radicale\
 	greenboot-task-runner greenboot-healthcheck greenboot-status \
