@@ -1,0 +1,18 @@
+# Pre-Configure desktop environment
+[org/gnome/shell]
+enabled-extensions=['Hide_Activities@shay.shayel.org', 'dash-to-dock@micxgx.gmail.com', 'no-overview@fthx', 'notification-icons@muhammad_ans.github', 'status-icons@gnome-shell-extensions.gcampax.github.com', 'system-monitor@gnome-shell-extensions.gcampax.github.com', 'appindicatorsupport@rgcjonas.gmail.com', 'apps-menu@gnome-shell-extensions.gcampax.github.com', 'clipboard-history@alexsaveau.dev', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'background-logo@fedorahosted.org']
+
+[org/gnome/desktop/interface]
+enable-hot-corners=false
+
+[org/gnome/software]
+download-updates-notify=false
+allow-updates=false
+download-updates=false
+
+[/org/gnome/shell/extensions/dash-to-dock]
+disable-overview-on-startup=true
+show-mounts=false
+show-apps-button=false
+show-trash=false
+scroll-action='cycle-windows'

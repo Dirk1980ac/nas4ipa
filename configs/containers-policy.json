@@ -1,0 +1,35 @@
+{
+	"default": [
+		{
+			"type": "reject"
+		}
+	],
+	"transports": {
+		"containers-storage": {
+			"": [
+				{
+					"type": "insecureAcceptAnything"
+				}
+			]
+		},
+		"docker": {
+			"quay.io/fedora": [
+				{
+					"type": "insecureAcceptAnything"
+				}
+			],
+			"docker.io/dirk1980": [
+				{
+					"type": "sigstoreSigned",
+					"keyPaths": [
+						"/usr/share/containers/keys/dirk1980.pub",
+						"/usr/share/containers/keys/dirk1980-backup.pub"
+					],
+					"signedIdentity": {
+						"type": "matchRepoDigestOrExact"
+					}
+				}
+			]
+		}
+	}
+}
