@@ -27,6 +27,9 @@ ARG buildid="unset"
 # Authorized_keys formatted file content. - NOT it's filename.
 ARG sshkeys=""
 
+# Build for Raspberry Pi
+ARG build_rpi="false"
+
 # Set some image labels for identification
 LABEL org.opencontainers.image.version=${buildid}
 LABEL org.opencontainers.image.authors="Dirk Gottschalk"
@@ -52,11 +55,11 @@ COPY --chmod=644 configs/containers-toolbox.conf /etc/containers/toolbox.conf
 COPY --chmod=644 configs/containers-policy.json /usr/share/containers/policy.json
 COPY --chmod=644 keys /usr/share/containers/keys
 
-# Assume Raspberry PI if building aarch64. At least for now.
+# Inject formware for RaspBerry Pi if 'build_rpi' is true
 RUN --mount=type=bind,source=./scripts,target=/scripts <<EORUN
 set -eu
 
-if [ "$(arch)" == "aarch64" ]; then
+if [[ "${build_rpi}" == true ]] && [[ "$(arch)" == "aarch64" ]]; then
 	dnf install -y bcm2711-firmware uboot-images-armv8
 	cp -P /usr/share/uboot/rpi_arm64/u-boot.bin /boot/efi/rpi-u-boot.bin
 	mkdir -p /usr/lib/bootc-raspi-firmwares
